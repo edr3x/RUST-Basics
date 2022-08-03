@@ -36,3 +36,56 @@ fn takes_and_gives_back(a_string: String) -> String {
 ## References
 
 - References don't take ownership of underlying value but points to it
+- References are immutable by nature
+
+```rust
+fn main(){
+     let s1: String = String::from("Hello");
+    let len = calculate_length(&s1); //* sending reference of s1 variable to function */
+    println!("The length of {} is {}", s1, len);
+
+    //* modifying by taking reference */
+    let mut s2: String = String::from("Hello"); //* have to make s2 mutable to modiry by reference */
+    change(&mut s2);
+
+    println!("{s2}"); //* prints "Hello, there" */
+}
+
+fn calculate_length(s: &String) -> usize {
+    let length = s.len();
+    length
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", there");
+}
+
+```
+
+> **Note:**
+>
+> can only have one mutable reference to a particular piece of data in a particular scope
+>
+> can't have multiple mutable references to the same data
+>
+> can have multiple immutable references to the same data
+>
+> can't have mutable reference if the immutable reference already exists
+
+```rust
+fn main(){
+    let mut s: String = String::from("hello");
+
+    let r1 = &s;
+    let r2 = &s;
+   // let r3 = &mut s; // can't do this because
+                                     // can't have mutable reference if the immutable reference already exists
+
+    println!("{}, {}", r1, r2);
+
+    let r3 = &mut s; // can do this now as at this point r1 and r2 are out of scope
+    println!("{}", r3);
+}
+```
+
+## Dangling References

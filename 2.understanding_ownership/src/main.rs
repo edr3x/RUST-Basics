@@ -13,10 +13,23 @@ fn main() {
     */
 
     //? References */
+    /*
+    let s1: String = String::from("Hello");
+    let len = calculate_length(&s1); //* sending reference of s1 variable to function */
+    println!("The length of {} is {}", s1, len);
+
+    //* modifying by taking reference */
+    let mut s2: String = String::from("Hello"); //* have to make s2 mutable to modiry by reference */
+    change(&mut s2);
+
+    println!("{s2}"); //* prints "Hello, there" */
+
+    */
+
+    //? Dangeling reference
 }
 
 //? Ownership Functions */
-/*
 fn takes_ownership(some_string: String) {
     println!("{}", some_string);
 }
@@ -30,4 +43,15 @@ fn gives_ownership() -> String {
 fn takes_and_gives_back(a_string: String) -> String {
     a_string
 }
-*/
+
+//? References functions */
+fn calculate_length(s: &String) -> usize {
+    let length = s.len();
+    length
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", there");
+}
+
+//? Dangeling Reference
