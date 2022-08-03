@@ -88,6 +88,60 @@ let tup2: (i8,f64,u8)= (500, 6.4, 1);
 let arr: [i32; 5] = [1, 2, 3, 4, 5];
 ```
 
+## Variables
+
+- `let`: Declares a variable
+- `mut`: Mutable variable
+- `const`: Constant variable
+
+```rust
+let x: i32 = 5; //* immutable variable x
+    println!("x is : {}", x);
+
+    let x: i32 = 99; //* can redefine x it acts like [@override] this overrides the value of x from upper scope
+    println!("x after redefining is :{}", x);
+
+    //* this defines new scope
+    //* also known as 'Shadowing'
+    {
+        //* value  of x can be get from upper scope
+        println!("x from upper scope: {}", x); // prints 99
+
+        let x = x - 40; //* can  do calculation as value of x is taken from upper scope
+        println!("x calc from upper scope: {}", x);
+
+        let x: i32 = 2; //*  can redeclare and others inside new scope
+        println!("x inside the scope:{}", x);
+
+        //* outside can't get value from this scope
+    }
+
+    println!("value of x inside of new scope can't be fetched:{}", x); // prints 99
+
+    let x = "Hello String"; //* can do this as we are redeclaring value of x as string
+    println!("x as string: {}", x);
+
+    let mut y: i32 = 7; //* mutable variable y
+    println!("y before : {}", y);
+    y = 9; // * can do this as y is mutable
+    println!("y after: {}", y);
+
+    //* String type */
+    let s: &str = "Hello"; //* stores in stack */
+    println!("{}", s);
+
+    let s: String = String::from("Hello"); //* stores in Heap */
+    println!("{}", s);
+
+    let x: i32 = 5;
+    let y: i32 = x; //* copies value to y */ used in stack
+    println!("{y}");
+
+    let s1: String = String::from("Hello");
+    let s2: String = s1.clone(); //* clone used in heap to clone one variable */
+    println!("{s2}");
+```
+
 ## User Input
 
 ```rust
