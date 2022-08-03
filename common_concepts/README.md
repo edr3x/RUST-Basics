@@ -58,8 +58,9 @@ let c:char = 'c';
 - `String`: String
 
 ```rust
-let s:&str = "Hello";
-let s:String = "Hello".to_string();
+let s:&str = "Hello"; // Stores in stack
+
+let s:String = String::from("Hello"); // Stores in heap
 ```
 
 ## Compound datatypes

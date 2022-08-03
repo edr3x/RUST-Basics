@@ -73,10 +73,10 @@ fn variables() {
     println!("y after: {}", y);
 
     //* String type */
-    let s: &str = "Hello";
+    let s: &str = "Hello"; //* stores in stack */
     println!("{}", s);
 
-    let s: String = "Hello".to_string();
+    let s: String = String::from("Hello"); //* stores in Heap */
     println!("{}", s);
 }
 
