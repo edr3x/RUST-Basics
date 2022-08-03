@@ -78,6 +78,14 @@ fn variables() {
 
     let s: String = String::from("Hello"); //* stores in Heap */
     println!("{}", s);
+
+    let x: i32 = 5;
+    let y: i32 = x; //* copies value to y */ used in stack
+    println!("{y}");
+
+    let s1: String = String::from("Hello");
+    let s2: String = s1.clone(); //* clone used in heap to clone one variable */
+    println!("{s2}");
 }
 
 fn constants() {
