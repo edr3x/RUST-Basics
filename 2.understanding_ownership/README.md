@@ -107,3 +107,15 @@ fn dangle() -> &String {
     &s
 }
 ```
+
+## Slices
+
+### Slices lets you reference a contiguous sequence of elements within a collection insted of entire collection
+
+- Slicing a array
+
+```rust
+let a: [i32; 6] = [1, 2, 3, 4, 5, 6];
+    let slice: &[i32] = &a[0..2];
+    println!("{}", slice[1]);
+```

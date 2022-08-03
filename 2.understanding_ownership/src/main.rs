@@ -29,6 +29,20 @@ fn main() {
     //? Dangeling reference
 
     // let reference_to_nothing = dangle();
+
+    //? Slices
+
+    let s2: &str = "hello world";
+
+    let word: &str = first_word(s2);
+
+    println!("{}", word);
+
+    //? Slice in array
+
+    let a: [i32; 6] = [1, 2, 3, 4, 5, 6];
+    let slice: &[i32] = &a[0..2];
+    println!("{}", slice[1]);
 }
 
 //? Ownership Functions */
@@ -63,3 +77,15 @@ fn dangle() -> &String {
     &s
 }
 */
+
+//? Slices */
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
