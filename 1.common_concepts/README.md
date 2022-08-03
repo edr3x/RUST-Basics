@@ -90,9 +90,9 @@ let arr: [i32; 5] = [1, 2, 3, 4, 5];
 
 ## Variables
 
-- `let`: Declares a variable
-- `mut`: Mutable variable
-- `const`: Constant variable
+- `let` : Declares a immutable variable
+- `let mut` : Mutable variable
+- `const` : Constant variable
 
 ```rust
 let x: i32 = 5; //* immutable variable x
