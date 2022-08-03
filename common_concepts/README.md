@@ -1,4 +1,4 @@
-# Learning RUST
+# Common Programming Concepts
 
 ## Datatypes
 
