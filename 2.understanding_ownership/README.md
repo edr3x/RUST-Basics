@@ -38,6 +38,11 @@ fn takes_and_gives_back(a_string: String) -> String {
 - References don't take ownership of underlying value but points to it
 - References are immutable by nature
 
+### Rules
+
+- At any given time, you can have either one mutable reference or any number of immutable references
+- References must always be valid
+
 ```rust
 fn main(){
      let s1: String = String::from("Hello");
@@ -89,3 +94,16 @@ fn main(){
 ```
 
 ## Dangling References
+
+```rust
+
+fn main(){
+    let reference_to_nothing = dangle();
+}
+fn dangle() -> &String {
+    // gives a error :
+    // this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+    let s: String = String::from("hello");
+    &s
+}
+```

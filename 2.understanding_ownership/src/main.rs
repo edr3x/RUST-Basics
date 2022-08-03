@@ -27,6 +27,8 @@ fn main() {
     */
 
     //? Dangeling reference
+
+    // let reference_to_nothing = dangle();
 }
 
 //? Ownership Functions */
@@ -55,3 +57,9 @@ fn change(some_string: &mut String) {
 }
 
 //? Dangeling Reference
+/*
+fn dangle() -> &String {
+    let s: String = String::from("hello");
+    &s
+}
+*/
