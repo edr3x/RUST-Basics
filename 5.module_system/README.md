@@ -106,3 +106,87 @@ pub fn eat_at_restaurant2() {
     let order2 = back_of_house2::Appetizer::Salad;
 }
 ```
+
+## Use Keyword
+
+- `use` keyword allows you to bring a path into scope
+
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting; //* absolute path */
+                //OR
+use front_of_house::hosting; //* relative path */
+
+//or we can use `pub` keyword to make hosting available to outside scope/file
+pub use crate::front_of_house::hosting; //* like this external code can reference `hosting` as well
+
+pub fn eat_at_restaurant1() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
+// We could import function directly but it is not best practice to directly import functions
+// So we import upto its parent module for example
+```
+
+```rust
+use std::fmt;
+use std::io;
+
+fn function1() -> fmt::Result{
+    //code
+}
+
+fn function2() -> io::Result{
+    //code
+}
+```
+
+### Alternatively
+
+```rust
+use std::fmt::Result;
+use std::io::Result as IoResult; // rename the Result to IoResult so that we can identify easily
+
+fn function1() -> Result{
+    //code
+}
+
+fn function2() -> IoResult{
+    //code
+}
+```
+
+### `use` keyword on external dependency
+
+- for example we imported `rand` dependency
+
+```rust
+use rand::Rng;
+
+// now we can create a random number
+let mut rng = rand::thread_rng().gen_range(1..=100);
+```
+
+- Now if we want to import all the functions from `rand` module then we can use `use rand::*`
+- if we want to import some functions from `rand` module then we can do
+
+```rust
+use rand::{Rng, CryptoRng, ErrorKind::Transiend};
+```
+
+- **Another Example**
+
+```rust
+use std::io;
+use std::io::Write;
+    //OR
+use std::io::{self,Write};
+```
+
+- The function of the two is same
