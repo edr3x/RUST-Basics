@@ -71,3 +71,7 @@ let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
         _ => println!("Not a integer!"),
     };
 ```
+
+## Strings
+
+- String are stored as a collection of UTF-8 encoded bytes
