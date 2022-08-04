@@ -1,4 +1,5 @@
 fn main() {
+    /*
     let mut v: Vec<i32> = Vec::new();
     //* Since vector can grow in size */
     v.push(2);
@@ -36,4 +37,25 @@ fn main() {
     for i in &v4 {
         println!("{}", i);
     }
+    */
+    storing_different_types_of_data();
+}
+
+fn storing_different_types_of_data() {
+    enum SpreadsheeetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row: Vec<SpreadsheeetCell> = vec![
+        SpreadsheeetCell::Int(3),
+        SpreadsheeetCell::Float(69.9),
+        SpreadsheeetCell::Text(String::from("hello")),
+    ];
+
+    match &row[0] {
+        SpreadsheeetCell::Int(i) => println!("{}", i),
+        _ => println!("Not a integer!"),
+    };
 }

@@ -3,6 +3,7 @@
 ## Vectors
 
 - Storing list of values with vector
+- Vector can only store one type of data
 - Vector can grow in size
 - We don't know size of vector at compile time as it is stored in heap
 
@@ -48,4 +49,25 @@ let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
         for i in &v3 {
             println!("{}", i);
         }
+```
+
+### Storing different types of data in vector
+
+```rust
+ enum SpreadsheeetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row: Vec<SpreadsheeetCell> = vec![
+        SpreadsheeetCell::Int(3),
+        SpreadsheeetCell::Float(69.9),
+        SpreadsheeetCell::Text(String::from("hello")),
+    ];
+
+    match &row[1] {
+        SpreadsheeetCell::Int(i) => println!("{}", i),
+        _ => println!("Not a integer!"),
+    };
 ```
