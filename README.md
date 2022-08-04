@@ -25,4 +25,8 @@
         <td>5</td>
         <td><a href ="https://github.com/edr3x/RUST-Learning/tree/master/5.module_system"> Module System</a></td>
     </tr>
+    <tr>
+        <td>6</td>
+        <td><a href ="https://github.com/edr3x/RUST-Learning/tree/master/6.common_collections"> Common Collections</a></td>
+    </tr>
 </table>
