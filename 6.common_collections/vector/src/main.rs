@@ -1,5 +1,4 @@
 fn main() {
-    /*
     let mut v: Vec<i32> = Vec::new();
     //* Since vector can grow in size */
     v.push(2);
@@ -37,7 +36,7 @@ fn main() {
     for i in &v4 {
         println!("{}", i);
     }
-    */
+
     storing_different_types_of_data();
 }
 
