@@ -2,7 +2,7 @@
 
 - Enums are a way of defining custom data types in a different way than you do with structs.
 
-**example**
+- **Example**
 
 ```rust
 #[derive(Debug)]
@@ -43,5 +43,42 @@ fn main() {
     println!("{:#?}", localhostv4);
 
     println!("{}", Message::some_fn());
+}
+```
+
+## Option Enums
+
+- Option enums are a way of handling situations where we might not have a value for a variable.
+
+```rust
+enum Option<T> {
+    Some(T),
+    None,
+}
+```
+
+### usae
+
+```rust
+fn main(){
+    let some_number = Some(5);
+    let some_string = Some("a string");
+
+    let absent_number: Option<i32> = None;
+}
+```
+
+- **Example**
+
+```rust
+fn main() {
+    let x: i8 = 5;
+    let y: Option<i8> = Some(5);
+
+    let z: i8 = x + y.unwrap_or(0);
+
+    println!("{}", z); // prints 10
+
+    //if y is None, then value of y will be in that inside unrap_or i.e 0
 }
 ```
