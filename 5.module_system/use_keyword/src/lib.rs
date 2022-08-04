@@ -1,5 +1,4 @@
-mod front_of_house;
-
+mod front_of_house; //* same name as filename */
 //? not ideal approach */
 pub fn eat_at_restaurant() {
     front_of_house::hosting::add_to_waitlist();

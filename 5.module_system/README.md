@@ -190,3 +190,17 @@ use std::io::{self,Write};
 ```
 
 - The function of the two is same
+
+## Modules in Seperate files
+
+- To understand [this](https://github.com/edr3x/RUST-Learning/tree/master/5.module_system/use_keyword/src) better
+- Go [here](https://youtu.be/5RPXgDQrjio?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8&t=1143)
+
+```folder
+src
+| |-- front_of_house
+|     |-- hosting.rs
+|
+|---- front_of_house.rs
+|---- lib.rs
+```
