@@ -145,3 +145,25 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 }
 
 ```
+
+## If Let Syntax
+
+- If let syntax is a way of handling situations where we might not have a value for a variable.
+- It is a shorter way of writing match expressions.
+- When we use if let syntax we only have to specify the pattern we care about and all other pattern are ignored
+
+```rust
+ // In match
+    let some_value: Option<i32> = Some(3);
+    match some_value{
+        Some(3) => println!("three"),
+        _ => (),
+    }
+
+// In If let
+
+    let some_value: Option<i32> = Some(3);
+    if let Some(3) = some_value {
+        println!("three");
+    }
+```
