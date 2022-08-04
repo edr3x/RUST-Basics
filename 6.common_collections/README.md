@@ -39,3 +39,13 @@ match v.get(2) {    // returns Option<&i32> so we can use match to check if valu
         None => println!("There is no element at specified index."),
     }
 ```
+
+### Iterating over vector
+
+```rust
+let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
+
+        for i in &v3 {
+            println!("{}", i);
+        }
+```

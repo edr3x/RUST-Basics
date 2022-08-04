@@ -17,4 +17,23 @@ fn main() {
         Some(index) => println!("Element is :{}", index),
         None => println!("There is no element at specified index."),
     }
+
+    //* Iterating over vector */
+    let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
+
+    for i in &v3 {
+        println!("{}", i);
+    }
+
+    // * Iterating over and changing
+
+    let mut v4: Vec<i32> = vec![1, 2, 3, 4, 5, 6];
+
+    for i in &mut v4 {
+        *i += 50; //*Deference operator, more in chapter 15 */
+    }
+
+    for i in &v4 {
+        println!("{}", i);
+    }
 }
