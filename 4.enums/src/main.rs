@@ -10,11 +10,10 @@ fn main() {
 
 //? Match Expression */
 #[derive(Debug)]
-enum UsState {
+enum UsStates {
     Alabama,
     Alaska,
     Arizoana,
-    Arkansons,
     //...
 }
 
@@ -22,7 +21,7 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState),
+    Quarter(UsStates),
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
@@ -33,8 +32,8 @@ fn value_in_cents(coin: Coin) -> u8 {
         }
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter(state) => {
-            println!("State quarter from {:?}", state);
+        Coin::Quarter(stateName) => {
+            println!("State quarter from {:?}", stateName);
             25
         }
     }
@@ -42,9 +41,9 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 //? Combining Match Expression with option enum
 
-fn plus_one(x: Option<i32>) -> Option<i32> {
+fn plus_two(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
-        Some(i) => Some(i + 1), //* Since our return type is option so we can't write `i+1` directly */
+        Some(i) => Some(i + 2), //* Since our return type is option so we can't write `i+1` directly */
     }
 }
