@@ -82,3 +82,44 @@ let f = File::open("hello.txt").unwrap();
 let f = File::open("hello.txt").expect("Failed to open hello.txt");
 // .expect() gives the message to panic macro
 ```
+
+## ? operator
+
+- `?` operator is used to handle the error in the function call.
+- this will do similar to calling .unwrap() or .expect() method
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut f = File::open("Hello.txt")?;
+    let mut s = String::new();
+
+    f.read_to_string(&mut s)?; // if this fails then it will return a error
+    Ok(s)
+}
+
+fn main() {}
+```
+
+### in above example
+
+- if we succed in opening the file then file will be opened and stored in variable `f`
+- in case of fail to get the file then insted of panicing our function will end early and return the error.
+
+### We can simplifying our function by chaining method calls
+
+```rust
+use std::fs::{self,File};
+use std::io;
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    fs::read_to_string("Hello.txt")
+}
+
+fn main() {}
+```
+
+> Note:
+> `?` operator can only be used in a function that returns `Result` or `Option`
