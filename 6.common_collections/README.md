@@ -155,3 +155,34 @@ let namaste: String = String::from("नमस्ते");
     //* outputs */
     // ["न", "म", "स्", "ते"]
 ```
+
+## Hash maps
+
+- Storing Keys with Associated Values in Hash Maps
+- In order to create hash map, we have to bring hash map type into scope from standard library
+
+```rust
+    use std::collections::HashMap;
+```
+
+```rust
+    let blue: String = String::from("Blue");
+    let yellow: String = String::from("Yellow");
+
+    let mut scores = HashMap::new();
+
+    scores.insert(blue, 10);
+    scores.insert(yellow, 50);
+    //* We could pass the reference to our string but that will require the use of lifetimes which is in chapter 10 */
+    //* We can get individual values out of hashmap by using `get` method and specifying the key */
+    let team_name = String::from("Blue");
+    match scores.get(&team_name) {
+        Some(x) => println!("{}", x), // gets 10
+        None => println!("none"),
+    };
+
+    //* We can iterate over our hashmap by */
+    for (key, value) in &scores {
+        println!("{}:{}", key, value);
+    }
+```
