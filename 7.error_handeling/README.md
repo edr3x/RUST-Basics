@@ -73,7 +73,7 @@ fn main() {
 }
 ```
 
-OR
+### Shortcuts for Panic on Error
 
 ```rust
 let f = File::open("hello.txt").unwrap();
