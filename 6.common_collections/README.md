@@ -54,7 +54,7 @@ let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
 ### Storing different types of data in vector
 
 ```rust
- enum SpreadsheeetCell {
+    enum SpreadsheeetCell {
         Int(i32),
         Float(f64),
         Text(String),
@@ -75,3 +75,83 @@ let v3: Vec<i32> = vec![6, 7, 8, 9, 10, 11, 12];
 ## Strings
 
 - String are stored as a collection of UTF-8 encoded bytes
+
+```rust
+let s1: String = String::new(); // creates empty string
+let s2: &str = "String slice"; // creates string slice
+let s3: String = s2.to_string(); // converts string slice to string
+let s4: String = String::from("Initial String"); // creates string from string slice
+```
+
+### Appending to String
+
+- Just like vector String can grow ans srink in size
+
+```rust
+    let mut s: String = String::from("foo");
+    s.push_str("bar"); // pushes string to string
+    s.push('!'); // pushes character to string
+
+    println!("{}", s);
+```
+
+- can also do with + operator
+
+```rust
+    let s1: String = String::from("Hello ");
+    let s2: String = String::from("world");
+    let s3: String = s1 + &s2; // Taking ownership from s1 and only taking reference from s2
+                               // This approach saves memory
+
+    println!("{}", s3);
+```
+
+- can also do with format macro
+
+```rust
+      let s1: String = String::from("Hello ");
+      let s2: String = String::from("world");
+      let s3: String = format!("{} {}", s1, s2); // This approach saves memory
+            // As format macro doesn't take ownership from s1 and s2 so we can use s1 and s2 after this
+      println!("{}", s3);
+```
+
+### Iterating over String
+
+```rust
+    let s: String = String::from("hello world");
+    for c in s.chars() {
+        println!("{}", c);
+    }
+```
+
+### Bytes and Scalar Values and Grapheme Clusters
+
+for string
+
+```rust
+let namaste: String = String::from("नमस्ते");
+
+    //? bytes */
+    for b in namaste.bytes() {
+        println!("{}", b);
+    }
+    //* outputs
+    // [224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164, 224, 165, 135]
+
+    //* Scalar */
+    for s in namaste.chars() {
+        println!("{} ", s);
+    }
+    //* outputs */
+    // ['न', 'म', 'स', '्', 'त', 'े']
+
+    //* Grapheme clusters */
+    //* we need `unicode-segmentation` crate for this */
+    for g in namaste.graphemes(true) {
+        println!("{}", g);
+    }
+
+    //* outputs */
+    // ["न", "म", "स्", "ते"]
+```
