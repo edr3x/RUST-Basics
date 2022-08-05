@@ -37,8 +37,8 @@ fn updating_hashmap() {
     scores.entry(String::from("Yellow")).or_insert(40);
     // there is a entry already exists for key "Yellow" so this does nothing
 
+    //Counting number of words
     let text: &str = "hello world wonderful world";
-
     let mut map = HashMap::new();
 
     for word in text.split_whitespace() {

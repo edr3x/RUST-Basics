@@ -186,3 +186,30 @@ let namaste: String = String::from("नमस्ते");
         println!("{}:{}", key, value);
     }
 ```
+
+### Updating HashMaps
+
+```rust
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Blue"), 20); // This will override the Blue key with the value 20
+
+    scores.entry(String::from("Yellow")).or_insert(30);
+    // there isn't entry for yellow key then this inserts 30
+    scores.entry(String::from("Yellow")).or_insert(40);
+    // there is a entry already exists for key "Yellow" so this does nothing
+
+    //Counting number of words
+    let text: &str = "hello world wonderful world";
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1; // this is deference operator
+    }
+
+    println!("{:?}", map);
+    //we get
+    // {"world": 2, "wonderful": 1, "hello": 1}
+```
