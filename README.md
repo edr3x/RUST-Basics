@@ -37,4 +37,8 @@
         <td>8</td>
         <td><a href ="https://github.com/edr3x/RUST-Learning/tree/master/8.generic_types"> Generic Types</a></td>
     </tr>
+<tr>
+        <td>9</td>
+        <td><a href ="https://github.com/edr3x/RUST-Learning/tree/master/9.traits"> Traits</a></td>
+    </tr>
 </table>
